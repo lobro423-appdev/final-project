@@ -1,6 +1,11 @@
 class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
+    @users = User.all
+    @categories = Category.all
+    
+    
+
 
     render("tweet_templates/index.html.erb")
   end

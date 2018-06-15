@@ -8,51 +8,44 @@
 
 <hr>
 
-<table class="table">
-  <tr>
-    <th>
-      ID
-    </th>
+  <div class="container">
+    <div class="row">
+  <div class="col-md-12">
 
-    <th>
-      Topic
-    </th>
+  </div>
+</div>
 
-    <th>
-      Created at
-    </th>
+<% @categories.each do |category| %>
+    <div class="row">
+  <div class="col-md-8 offset-md-2">
+  </div>
+</div>
 
-    <th>
-      Updated at
-    </th>
 
-    <th>
-    </th>
-  </tr>
+<div class="row mb-5">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">
+          <%= category.topic %>
+        </h4>
+      </div>
 
-  <% @categories.each do |category| %>
-  <tr>
-    <td>
-      <%= category.id %>
-    </td>
+      <div class="card-body">
+        <%= category.tweets.count %>
+        <br>
+        <a href="/categories/<%= category.id %>/edit">Edit Category</a>
+        
+        
 
-    <td>
-      <%= category.topic %>
-    </td>
+        <div>
 
-    <td>
-      <%= time_ago_in_words(category.created_at) %> ago
-    </td>
+        </div>
+      </div> <!-- card-body -->
+    </div> <!-- card  -->
+  </div> <!-- col-md-8 offset-md-2 -->
+</div> <!-- row -->
 
-    <td>
-      <%= time_ago_in_words(category.updated_at) %> ago
-    </td>
+<% end %>
 
-    <td>
-      <a href="/categories/<%= category.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <% end %>
-</table>
+  </div>

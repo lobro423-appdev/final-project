@@ -28,7 +28,7 @@
   <!-- Label and input for url -->
   <div class="form-group">
     <label for="url">
-      Url
+      URL
     </label>
 
     <input type="text" id="url" name="url" class="form-control" value="<%= @tweet.try(:url) %>">
@@ -48,17 +48,15 @@
     <label for="category_id">
       Category
     </label>
+    
+    <%= select_tag("category_id", options_from_collection_for_select(Category.all, :id, :topic, @tweet.try(:category_id)), :class => "form-control") %>
 
-    <input type="text" id="category_id" name="category_id" class="form-control" value="<%= @tweet.try(:category_id) %>">
   </div>
 
   <!-- Label and input for user_id -->
   <div class="form-group">
-    <label for="user_id">
-      User
-    </label>
 
-    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @tweet.try(:user_id) %>">
+    <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

@@ -8,83 +8,46 @@
 
 <hr>
 
-<table class="table">
-  <tr>
-    <th>
-      ID
-    </th>
+  <div class="container">
+    <div class="row">
+  <div class="col-md-12">
 
-    <th>
-      Body
-    </th>
+  </div>
+</div>
 
-    <th>
-      Url
-    </th>
+<% @tweets.each do |tweet| %>
+    <div class="row">
+  <div class="col-md-8 offset-md-2">
+  </div>
+</div>
 
-    <th>
-      Notes
-    </th>
 
-    <th>
-      Category
-    </th>
+<div class="row mb-5">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">
+          <%= @users.find(tweet.user_id).username %>
+        </h4>
+      </div>
 
-    <th>
-      User
-    </th>
+      <div class="card-body">
+        <%= tweet.body %>
+        <br>
+        #<%= @categories.find(tweet.category_id).topic %>
+        <br>
+        <a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a>
+        
+        
 
-    <th>
-      Created at
-    </th>
+        <div>
 
-    <th>
-      Updated at
-    </th>
+        </div>
+      </div> <!-- card-body -->
+    </div> <!-- card  -->
+  </div> <!-- col-md-8 offset-md-2 -->
+</div> <!-- row -->
 
-    <th>
-    </th>
-  </tr>
+<% end %>
 
-  <% @tweets.each do |tweet| %>
-  <tr>
-    <td>
-      <%= tweet.id %>
-    </td>
-
-    <td>
-      <%= tweet.body %>
-    </td>
-
-    <td>
-      <%= tweet.url %>
-    </td>
-
-    <td>
-      <%= tweet.notes %>
-    </td>
-
-    <td>
-      <%= tweet.category_id %>
-    </td>
-
-    <td>
-      <%= tweet.user_id %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(tweet.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(tweet.updated_at) %> ago
-    </td>
-
-    <td>
-      <a href="/tweets/<%= tweet.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <% end %>
-</table>
+  </div>
