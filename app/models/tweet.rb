@@ -13,6 +13,9 @@
 #
 
 class Tweet < ApplicationRecord
-    belongs_to :users
-    belongs_to :categories
+    belongs_to :user
+    belongs_to :category
+    
+    validates :body, :url, presence: true
+    
 end

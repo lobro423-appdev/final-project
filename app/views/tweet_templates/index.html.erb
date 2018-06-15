@@ -32,12 +32,26 @@
       </div>
 
       <div class="card-body">
+        <p>
+        <b> Tweet: </b>
         <%= tweet.body %>
         <br>
         #<%= @categories.find(tweet.category_id).topic %>
-        <br>
-        <a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a>
+          <a href= "<%= tweet.url%>"> LINK </a>
+        </p>
         
+        <p>
+        <b> Key Takeaways: </b>
+        <% if tweet.notes.blank? %>
+          None
+        <% else %>
+        <%= tweet.notes %>
+        <% end %> 
+        </p>
+        
+        <p>
+          <a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a>
+        </p>
         
 
         <div>
