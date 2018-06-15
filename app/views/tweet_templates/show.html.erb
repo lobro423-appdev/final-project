@@ -1,0 +1,70 @@
+<h1>
+  Tweet #<%= @tweet.id %> details
+</h1>
+
+<a href="/tweets/<%= @tweet.id %>/edit">
+  Edit tweet
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Body
+  </dt>
+  <dd>
+    <%= @tweet.body %>
+  </dd>
+
+  <dt>
+    Url
+  </dt>
+  <dd>
+    <%= @tweet.url %>
+  </dd>
+
+  <dt>
+    Notes
+  </dt>
+  <dd>
+    <%= @tweet.notes %>
+  </dd>
+
+  <dt>
+    Category
+  </dt>
+  <dd>
+    <%= @tweet.category_id %>
+  </dd>
+
+  <dt>
+    User
+  </dt>
+  <dd>
+    <%= @tweet.user_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@tweet.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@tweet.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_tweet/<%= @tweet.id %>">
+  Delete tweet
+</a>
+
+<hr>
+
+<a href="/tweets">
+  Go back
+</a>

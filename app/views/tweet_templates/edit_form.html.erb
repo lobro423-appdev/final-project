@@ -1,0 +1,71 @@
+<!-- Validation failure messages -->
+<% if @tweet.errors.any? %>
+  <% @tweet.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit tweet #<%= @tweet.id %>
+</h1>
+
+<hr>
+
+<form action="/update_tweet/<%= @tweet.id %>" method="post">
+  <!-- Label and input for body -->
+  <div class="form-group">
+    <label for="body">
+      Body
+    </label>
+
+    <input type="text" id="body" name="body" class="form-control" value="<%= @tweet.body %>">
+  </div>
+
+  <!-- Label and input for url -->
+  <div class="form-group">
+    <label for="url">
+      Url
+    </label>
+
+    <input type="text" id="url" name="url" class="form-control" value="<%= @tweet.url %>">
+  </div>
+
+  <!-- Label and input for notes -->
+  <div class="form-group">
+    <label for="notes">
+      Notes
+    </label>
+
+    <input type="text" id="notes" name="notes" class="form-control" value="<%= @tweet.notes %>">
+  </div>
+
+  <!-- Label and input for category_id -->
+  <div class="form-group">
+    <label for="category_id">
+      Category
+    </label>
+
+    <input type="text" id="category_id" name="category_id" class="form-control" value="<%= @tweet.category_id %>">
+  </div>
+
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @tweet.user_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update tweet
+  </button>
+</form>
+
+<hr>
+
+<a href="/tweets">
+  Go back
+</a>

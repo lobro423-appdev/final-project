@@ -1,0 +1,90 @@
+<h1>
+  All tweets
+</h1>
+
+<a href="/tweets/new">
+  Add a new tweet
+</a>
+
+<hr>
+
+<table class="table">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Body
+    </th>
+
+    <th>
+      Url
+    </th>
+
+    <th>
+      Notes
+    </th>
+
+    <th>
+      Category
+    </th>
+
+    <th>
+      User
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @tweets.each do |tweet| %>
+  <tr>
+    <td>
+      <%= tweet.id %>
+    </td>
+
+    <td>
+      <%= tweet.body %>
+    </td>
+
+    <td>
+      <%= tweet.url %>
+    </td>
+
+    <td>
+      <%= tweet.notes %>
+    </td>
+
+    <td>
+      <%= tweet.category_id %>
+    </td>
+
+    <td>
+      <%= tweet.user_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(tweet.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(tweet.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/tweets/<%= tweet.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
